@@ -19,9 +19,8 @@ def main():
     run_command("./caddy run")
 
 
-
 def run_command(cmd):
-    cmd  = shlex.split(cmd)
+    cmd = shlex.split(cmd)
     print(cmd)
     process = subprocess.Popen(
         cmd, stdin=subprocess.PIPE)
@@ -31,13 +30,8 @@ def run_command(cmd):
         print(process.stderr)
 
 
-
-
 def install_package(package_name, install_base_command="apt-get install -y"):
     return run_command("{} {}".format(install_base_command, package_name))
-
-
-
 
 if __name__ == "__main__":
     main()
