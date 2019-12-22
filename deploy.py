@@ -39,10 +39,10 @@ def run_command(cmd):
 
 def postNewConfig(name, config):
     print(name)
-    data = urllib.parse.urlencode(config).encode()
+    data = json.dumps(config).encode('utf-8')
     req = urllib.request.Request(
-        "http://localhost:2019/config/".format(name), data=data)
-    req.get_method = lambda: 'PUT'
+        "http://localhost:2019/config/".format(name), data=data, method="POST")
+    req.headers["Content-Type"] = "application/json"
     resp = urllib.request.urlopen(req)
     print( resp.read().decode('utf-8'))
 
