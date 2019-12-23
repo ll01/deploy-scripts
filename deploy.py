@@ -41,10 +41,15 @@ def postNewConfig(name, config):
     print(name)
     data = json.dumps(config).encode('utf-8')
     req = urllib.request.Request(
-        "http://localhost:2019/config/".format(name), data=data, method="POST")
+        "http://localhost:2019/config/apps/http/servers/{}".format(name),
+         data=data, method="PUT")
     req.headers["Content-Type"] = "application/json"
-    resp = urllib.request.urlopen(req)
-    print( resp.read().decode('utf-8'))
+    try:
+        resp = urllib.request.urlopen(req)
+        print( resp.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        print(e.read().decode('utf-8'))
+  
 
 
 if __name__ == "__main__":
