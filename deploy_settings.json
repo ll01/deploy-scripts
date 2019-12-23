@@ -1,7 +1,0 @@
-{
-    "path": "N/A",
-    "name": "example",
-    "config": {
-        "listen": [":80"]
-    }
-  }
