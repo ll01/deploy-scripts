@@ -12,18 +12,18 @@ import os
 def main():
     with open("deploy_settings.json", "r") as settings_file:
         appData = json.loads(settings_file.read())
-        print(appData)
-    # if  os.path.isdir(appData.path):
-    #     run_command("git pull")
-    # else:
-    #     run_command("git clone {} {}".format(appData.registry, appData.path))
-    # run_command("docker-compose pull")
-    # run_command("docker-compose stop")
-    # run_command("docker-compose rm -f")
-    # run_command(
-    #     "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d")
-        postNewConfig(appData["name"], appData["config"])
-    pass
+        print("getting code ...")
+        if  os.path.isdir(appData["path"]):
+            run_command("git pull")
+        else:
+            run_command("git clone {} {}".format(appData["registry"], appData["path"]))
+            print("composing ...")
+            run_command("docker-compose pull")
+            run_command("docker-compose stop")
+            run_command("docker-compose rm -f")
+            run_command(
+                "docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d")
+            postNewConfig(appData["name"], appData["config"])
         
 
 def run_command(cmd):
