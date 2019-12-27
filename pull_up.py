@@ -9,6 +9,7 @@ def main():
     install_package("golang-go")
     install_package("curl")
     install_package("git")
+    settings_file = os.getcwd().join("settings.json")
     run_command("curl -fsSL get.docker.com -o get-docker.sh")
     run_command("sh get-docker.sh")
     run_command('mkdir src')
@@ -16,7 +17,7 @@ def main():
     run_command('git clone -b v2 "https://github.com/caddyserver/caddy.git"')
     os.chdir("./caddy/cmd/caddy/")
     run_command('go build')
-    run_command("./caddy run  ")
+    run_command("./caddy run --config {}".format(settings_file))
 
 
 def run_command(cmd):
