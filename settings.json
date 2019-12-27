@@ -9,7 +9,7 @@
                     {
                         "management": {
                             "module": "acme",
-                            "ca": "https://acme-staging-v02.api.letsencrypt.org/directory",
+                            "ca": "https://acme-staging-v02.api.letsencrypt.org/directory"
                         }
                     }
                 ]

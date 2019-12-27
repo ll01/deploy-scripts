@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import urllib
 import urllib.parse
@@ -23,7 +25,7 @@ def main():
             run_command("docker-compose stop")
             run_command("docker-compose rm -f")
 
-        run_command("docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d")
+        run_command("docker-compose -f docker-compose.yml up -d")
         postNewConfig(appData["name"], appData["config"])
         
 
