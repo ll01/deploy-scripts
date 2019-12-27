@@ -5,12 +5,14 @@
         },
         "tls": {
             "automation": {
-                "policies": {
-                    "management": {
-                        "module": "acme",
-                        "ca": "https://acme-staging-v02.api.letsencrypt.org/directory"
+                "policies": [
+                    {
+                        "management": {
+                            "module": "acme",
+                            "ca": "https://acme-staging-v02.api.letsencrypt.org/directory",
+                        }
                     }
-                }
+                ]
             }
         }
     }
