@@ -20,7 +20,7 @@ def main():
     run_command('git clone -b v2 "https://github.com/caddyserver/caddy.git"')
     os.chdir("./caddy/cmd/caddy/")
     run_command('go build')
-    run_command("./caddy run  --config {}".format(settings_file))
+    run_command("./caddy start  --config {}".format(settings_file))
 
 
 def run_command(cmd):
