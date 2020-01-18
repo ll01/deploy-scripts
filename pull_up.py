@@ -4,7 +4,7 @@ import os
 
 
 def main():
-    run_command("add-apt-repository ppa:longsleep/golang-backports")
+    run_command("add-apt-repository -y  ppa:longsleep/golang-backports")
     run_command("apt-get update -y")
     install_package("golang-go")
     install_package("curl")
