@@ -1,0 +1,4 @@
+curl -X POST \
+	-H "Content-Type: application/json" \
+	-d ' ' \
+	"http://localhost:2019/config/apps/http/servers/scale/listen"

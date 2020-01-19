@@ -1,0 +1,29 @@
+{
+    "match": [
+        {
+            "host": [
+                "example.com"
+            ]
+        }
+    ],
+    "handle": [
+        {
+            "handler": "reverse_proxy",
+            "health_checks": {
+                "active": {
+                    "path": "/ok",
+                    "port": 5000,
+                    "interval": "60s",
+                    "timeout": "10s",
+                    "expect_status": 200,
+                    "expect_body": "{\"status\":\"up\"}"
+                }
+            },
+            "upstreams": [
+                {
+                    "dial": "localhost:1337"
+                }
+            ]
+        }
+    ]
+}
